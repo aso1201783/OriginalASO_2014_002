@@ -14,19 +14,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
-	    <Button
-	        android:id="@+id/button1"
-	        android:layout_width="0dp"
-	        android:layout_height="wrap_content"
-	        android:layout_weight="1"
-	        android:text="戻る" />
 
-	    <Button
-	        android:id="@+id/button2"
-	        android:layout_width="0dp"
-	        android:layout_height="wrap_content"
-	        android:layout_weight="1"
-	        android:text="削除" />
+        <Button
+            android:id="@+id/btnMODORU"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="戻る" />
+
+        <Button
+            android:id="@+id/btnDELETE"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="削除" />
+
 	</LinearLayout>
 
 </LinearLayout>

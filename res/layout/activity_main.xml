@@ -23,7 +23,7 @@
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/edtHITOKOTO"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginBottom="100dp"
@@ -37,24 +37,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
-	    <Button
-	        android:id="@+id/button1"
+	    <Button
+	        android:id="@+id/btnMENTE"
 	        android:layout_width="0dp"
 	        android:layout_height="wrap_content"
 	        android:layout_weight="1"
 	        android:text="メンテ" />
 
 	    <Button
-	        android:id="@+id/button2"
+	        android:id="@+id/btnOK"
 	        android:layout_width="0dp"
 	        android:layout_height="wrap_content"
 	        android:layout_weight="1"
 	        android:text="登録" />
 	</LinearLayout>
 
-
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnHITOKOTO"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ひとことチェック" />

@@ -16,7 +16,7 @@
         android:src="@drawable/toranomon00201" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/txvHITOKOTO"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="ひとこと" />

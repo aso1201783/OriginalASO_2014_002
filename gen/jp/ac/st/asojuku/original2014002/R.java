@@ -25,6 +25,7 @@ public final class R {
         public static final int toranomon00201=0x7f020001;
     }
     public static final class id {
+        public static final int LvHITOKOTO=0x7f080007;
         public static final int action_settings=0x7f08000a;
         public static final int btnDELETE=0x7f080009;
         public static final int btnHITOKOTO=0x7f080006;
@@ -33,7 +34,6 @@ public final class R {
         public static final int btnOK=0x7f080005;
         public static final int edtHITOKOTO=0x7f080003;
         public static final int imageView1=0x7f080000;
-        public static final int listView1=0x7f080007;
         public static final int textView2=0x7f080002;
         public static final int txvHITOKOTO=0x7f080001;
     }

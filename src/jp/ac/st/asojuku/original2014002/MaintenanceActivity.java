@@ -1,7 +1,6 @@
 package jp.ac.st.asojuku.original2014002;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -12,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 public class MaintenanceActivity extends Activity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
@@ -49,17 +49,25 @@ public class MaintenanceActivity extends Activity implements View.OnClickListene
 	public void onClick(View v) {
 		// TODO 自動生成されたメソッド・スタブ
 
-		Intent intent = null;
 
 		switch(v.getId()){
 		case R.id.btnMODORU:
-			intent = new Intent(MaintenanceActivity.this, MainActivity.class);
+			finish();
 			break;
 		case R.id.btnDELETE:
-			intent = new Intent(MaintenanceActivity.this, MaintenanceActivity.class);
+			if(this.selectedID != -1){
+				this.deleteFromHitokoto(this.selectedID);
+				ListView lstHitokoto = (ListView)findViewById(R.id.LvHITOKOTO);
+
+				this.setDBValuetoList(lstHitokoto);
+
+				this.selectedID = -1;
+				this.LastPosition = -1;
+			}else{
+				Toast.makeText(MaintenanceActivity.this, "削除する行を選んでください", Toast.LENGTH_SHORT).show();
+			}
 			break;
 		}
-		startActivity(intent);
 
 	}
 
@@ -86,9 +94,32 @@ public class MaintenanceActivity extends Activity implements View.OnClickListene
 		lstHitokoto.setAdapter(adapter);
 	}
 
+	private void deleteFromHitokoto(int id){
+		if(sdb == null){
+			helper = new MySQLiteOpenHelper(getApplicationContext());
+		}
+		try{
+			sdb = helper.getWritableDatabase();
+		}catch(SQLiteException e){
+			Log.e("ERROR", e.toString());
+		}
+		this.helper.deleteHitokoto(sdb, id);
+	}
+
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		// TODO 自動生成されたメソッド・スタブ
+		if(this.selectedID!=-1){
+			parent.getChildAt(this.LastPosition).setBackgroundColor(0);
+		}
+
+		view.setBackgroundColor(android.graphics.Color.LTGRAY);
+
+		SQLiteCursor cursor = (SQLiteCursor)parent.getItemAtPosition(position);
+
+		this.selectedID = cursor.getInt(cursor.getColumnIndex("_id"));
+
+		this.LastPosition = position;
 
 	}
 }
